@@ -56,12 +56,12 @@ export default function Val2025() {
           <span className="love">💖</span>
           <span className="love">💕</span>
         </div>
-        {showLoveMessage && (
+      </div>
+      {showLoveMessage && (
           <div className="love-message">
             <span>I Love You Kebabi!</span>
           </div>
         )}
-      </div>
 
       <div className="yearDivision" >
         <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
