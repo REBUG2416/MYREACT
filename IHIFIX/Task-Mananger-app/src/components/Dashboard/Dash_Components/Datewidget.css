@@ -1,0 +1,77 @@
+.calendar-widget {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  background-color: rgba(0, 17, 97, 1);
+      border-radius: 15px;
+    height: 9rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: WHITE;
+  padding: 0px 25px;
+}
+
+.header>h2{
+  margin: 0;
+            font-weight:300;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 15%;
+}
+
+.navigation>button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.navigation>button>img {
+width: 23.66px;
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+}
+
+.day-name, .day {
+  padding: 10px;
+  border: none;
+}
+
+
+.different-month {
+  color: rgba(255, 255, 255, 0.449);
+}
+
+.current-day {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0;
+}
+
+
+.current-day>.highlighter{
+      display: flex;
+  align-items: center;
+  justify-content: center;
+border-radius: 20px;
+width: 50%;
+height: 100%;
+background-color: rgba(237, 37, 37, 1);
+}

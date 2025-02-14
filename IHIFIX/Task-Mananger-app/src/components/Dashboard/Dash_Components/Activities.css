@@ -1,0 +1,46 @@
+.Recent-Activity {
+  border-radius: 15px;
+  width: 42%;
+  padding: 25px 25px;
+  padding-top: 5px;
+  padding-right: 10px;
+  background-color: white;
+  height: 400px;
+  animation: slide-in 1s 1;
+}
+
+.Recent-Activity>h3{
+            font-weight: 600;
+    margin-left: 21px;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(40px);
+    opacity: 0%;
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.Activities-holder {
+  height: 80%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.Activity > img {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.Activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0px;
+  font-size: 13px;
+}

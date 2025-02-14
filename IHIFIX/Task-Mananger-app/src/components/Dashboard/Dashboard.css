@@ -1,0 +1,27 @@
+.content{
+position: relative;
+top: 70px;
+left: 18%;
+width: 81%;
+height: 90vh;
+border: 1px solid transparent;
+}
+
+.content>h1{
+        font-size: 24px;
+font-weight: 500;
+
+}
+
+.Widgets{
+        display: flex;
+        flex-wrap: wrap;
+        height: 75vh;
+        gap: 3%;
+        overflow: hidden;
+               overflow-y: scroll;
+}
+
+.Date-task{
+          width: 45%;
+}

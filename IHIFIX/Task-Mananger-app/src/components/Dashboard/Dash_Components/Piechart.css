@@ -1,0 +1,89 @@
+.Pie-container {
+  background-color: white;
+  margin-top: 20px;
+  padding: 15px 30px;
+  padding-bottom: 0px;
+border-radius: 15px;
+}
+
+.Pie-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 30px;
+  padding-top: 10px;
+}
+
+.Pie-container > h3 {
+          font-weight: 600;
+  margin: 0px;
+}
+.Piechart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: conic-gradient(
+    white 1deg,
+    rgba(221, 0, 0, 1) 0 100deg,
+    white 0 101deg,
+     rgba(8, 31, 136, 1) 0 200deg,
+    white 0 201deg,
+    rgba(18, 174, 98, 1) 0
+  );
+  transform: rotate(30deg);
+}
+
+.Piechart-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: white;
+    transform: rotate(-30deg);
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 35%;
+  width: 20%;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.labels > div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.label-color1,.label-color2,.label-color3{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.label-color1{
+  background-color: rgba(221, 0, 0, 1);
+}
+
+.label-color2{
+    background-color:rgba(8, 31, 136, 1);
+}
+
+.label-color3{
+    background-color:rgba(18, 174, 98, 1);
+}

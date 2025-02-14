@@ -1,0 +1,112 @@
+
+
+.Form {
+  display: flex;
+  width: 25%;
+  margin: auto;
+  padding-top: 3%;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+form{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.Form>h1{
+    margin-bottom: 0px;
+}
+.Form>p{
+    font-size: 20px;
+    text-decoration: none;
+}
+.Form>p>a{
+    color:rgba(5, 20, 90, 1);
+    text-decoration: none;
+}
+
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  padding: 10px 0px;
+}
+
+input{
+height: 49px;
+border-radius: 15px;
+border: none;
+background-color: #FFFFFF;
+}
+
+Form > div > label{
+    margin: 5px 0px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+.Username>label{
+text-align: left;
+}
+
+.Password>label{
+text-align: left;
+}
+.Password>a{
+      margin: 5px 0px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    text-decoration: none;
+text-align: right;
+}
+
+.Submit>span{
+    display: flex;
+text-align: left;
+align-items: center;
+text-indent: 10px;
+}
+
+.checkbox{
+}
+
+.Submit>button{
+    color: white;
+    background-color: #05145A;
+height: 49px;
+border-radius: 15px;
+border: none;
+}
+
+.altlog{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+}
+
+.altlog>img{
+    width: 10px;
+    margin: 15px 0px;
+
+}
+
+.icons-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 200px;
+}
+
+.icon{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: rgba(237, 237, 237, 1);
+}

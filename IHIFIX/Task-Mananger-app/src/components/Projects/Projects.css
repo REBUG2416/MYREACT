@@ -1,0 +1,40 @@
+.Projects-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 94.5%;
+      margin-bottom: 10px;
+}
+
+.Projects-headings-title {
+  width: 28%;
+  font-weight: 500;
+}
+
+.Projects-headings-members {
+display: flex;
+justify-content: center;
+  width: 20%;
+}
+
+.Projects-headings-tasks {
+display: flex;
+justify-content: center;
+  width: 16%;
+    font-weight: 500;
+
+}
+
+.Projects-headings-due {
+display: flex;
+justify-content: center;
+  width: 26%;
+}
+
+.Projects-headings-update{
+    font-weight: 500;
+}
+
+.Projects-headings > span {
+  font-weight: 400;
+}
