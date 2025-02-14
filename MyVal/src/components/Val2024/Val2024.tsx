@@ -1,11 +1,18 @@
 import React from 'react'
 import "./Val2024.css";
 import redHeart from "./assets/heart2.png";
+import roseLine from "./assets/rose-line.png";
+
 
 export default function Val2024() {
   return (
 <>
 <div className="container">
+  <div className='yearDivision'>
+  <img src={roseLine} alt="" className="roseline" />
+  <span>Valentines Day <span style={{color:"red"}}>2024</span></span>
+  <img src={roseLine} alt="" className="roseline" />
+  </div>
   <h1>Happy Valentines Day</h1>
    <div className="heart"><i className="fa-solid fa-heart"></i></div>
  <div className="text">
@@ -34,8 +41,14 @@ For Kebabi, my love is sincere.
 <div style={{display: "flex" , justifyContent: "center", marginBottom: "30px"}}> <img src={redHeart} style={{width: "80px"}} /></div>
 </div>
 
-
   <div className="heart" style={{left: "82%",color: "#800080",animation:"heartbeat-purple ease-in-out 2.5s infinite alternate"}}><i className="fa-solid fa-heart"></i></div>
+
+  <div className='yearDivision'>
+  <img src={roseLine} alt="" className="roseline" />
+  <span>Valentines Day <span style={{color:"red"}}>2025</span></span>
+  <img src={roseLine} alt="" className="roseline" />
+  </div>
+
 </div>
 </>  
 )

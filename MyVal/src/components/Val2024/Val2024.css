@@ -3,10 +3,31 @@
     font-family: 'Paint Brush Script', sans-serif;
     font-size: 70px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 10px;
     }
     
+.roseline{
+  width: 30%;
+
+}
+
+.yearDivision{
+  margin-top: 50px;
+  margin-bottom: 50px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+}
+
+.yearDivision>span{
+  color: white;
+  font-family: 'Paint Brush Script', sans-serif;
+  font-size: 50px;
+
+}
+
     .heart {
       color:#0000ff ; 
       font-size: 120px;
@@ -67,9 +88,83 @@
   }
 }
 
-@media (orientation: portrait) {
+@media (max-width: 768px) {
+  .container > h1 {
+    font-size: 50px;
+  }
 
-  .text{
-   width: 58%;
+  .heart {
+    font-size: 80px;
+  }
+
+  .yearDivision>span{
+    font-size: 30px;
+  }
+
+  .roseline{
+    width: 30%;
+  
+  }
+
+  .text {
+    width: 70%;
+    font-size: 18px;
+    line-height: 35px;
+  }
+
+  .download-section h2 {
+    font-size: 30px;
+  }
+
+  .download-button {
+    font-size: 16px;
   }
 }
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .container > h1 {
+    font-size: 50px;
+  }
+
+  .heart {
+    font-size: 55px;
+    top: 45%;
+    
+    }
+      .text {
+    width: 90%;
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .yearDivision>span{
+    font-size: 25px;
+  }
+
+  .roseline{
+    width: 25%;
+  
+  }
+  
+  .text{
+    width: 58%;
+   }
+ 
+
+
+  .download-section h2 {
+    font-size: 24px;
+  }
+
+  .download-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .download-button i {
+    font-size: 20px;
+  }
+}
+
+
+
