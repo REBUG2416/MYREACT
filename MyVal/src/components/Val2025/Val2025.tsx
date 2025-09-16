@@ -46,7 +46,7 @@ export default function Val2025() {
             </button>
           </div>
           <p className="cute-text">Tap the heart!</p>
-          <a href="https://expo.dev/artifacts/eas/8at4n38YWNuTxaKhFdUGt7.apk" download className="cute-button">
+          <a href="https://expo.dev/artifacts/eas/5CjUBE7cWLrzakNkW5d47J.apk" download className="cute-button">
             <span className="button-text">Download</span>
             <span className="heart-icon">❤️</span>
           </a>
