@@ -8,7 +8,7 @@ import heartIcon from "./assets/heartIcon2.png"
 export default function Val2025() {
   const [showLoveMessage, setShowLoveMessage] = useState(false)
 
- 
+
 
   const handleHeartClick = () => {
     setShowLoveMessage(true)
@@ -17,11 +17,11 @@ export default function Val2025() {
 
   return (
     <>
-            <div className='yearDivision'>
-          <img src={roseLine} alt="" className="roseline" />
-          <span>Valentines Day <span style={{ color: "#0000ff" }}>2025</span></span>
-          <img src={roseLine} alt="" className="roseline" />
-        </div>
+      <div className='yearDivision'>
+        <img src={roseLine} alt="" className="roseline" />
+        <span>Valentines Day <span style={{ color: "#0000ff" }}>2025</span></span>
+        <img src={roseLine} alt="" className="roseline" />
+      </div>
 
       <div className="container" data-aos="fade-down" data-aos-duration="1000">
         <h1 style={{ color: "#0000ff" }}>To my Val</h1>
@@ -33,7 +33,7 @@ export default function Val2025() {
           Today is such a special day for us and i am so grateful i have you{" "}
           <span style={{ color: "#e24de2" }}>Kebabi</span>. Our love shall continue to grow <br /> as pure as it has
           been, is , and will always be.
-          <br />I love You <span style={{ color: "#e24de2" }}>Aaliyah</span>
+          <br />I love You <span style={{ color: "#e24de2" }}>Kebabi</span>
           <br />- <span style={{ color: "#0000ff" }}>Dera</span>
         </span>
       </div>
@@ -64,10 +64,10 @@ export default function Val2025() {
         </div>
       </div>
       {showLoveMessage && (
-          <div className="love-message">
-            <span>I Love You Kebabi!</span>
-          </div>
-        )}
+        <div className="love-message">
+          <span>I Love You Kebabi!</span>
+        </div>
+      )}
 
     </>
   )
