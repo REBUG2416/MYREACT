@@ -1,0 +1,37 @@
+[
+    {
+        "id": "first_chat",
+        "title": "Starlit Beginning",
+        "shortText": "Like a signal from a distant star, your first message lit up my world. I knew instantly that the universe had shifted.",
+        "image": "assets/01-first-chat-cosmic.jpg",
+        "imageType": "illustration",
+        "secretMessage": "The stars aligned the moment we said hello.",
+        "unlockRule": "tap_3"
+    },
+    {
+        "id": "first_fight",
+        "title": "Cosmic Collision",
+        "shortText": "Even colliding stars create something beautiful. We learned that our gravity is stronger than any storm.",
+        "image": "assets/02-first-fight-cosmic.jpg",
+        "imageType": "illustration",
+        "secretMessage": "Our bond is stronger than gravity.",
+        "unlockRule": "quiz",
+        "quizQuestion": "Where did we go on our first proper date?",
+        "quizOptions": [
+            "The Cinema",
+            "Coffee Shop",
+            "The Moon",
+            "Park"
+        ],
+        "quizAnswer": 1
+    },
+    {
+        "id": "favorite_memory",
+        "title": "Galaxy Dance",
+        "shortText": "That night wasn't just a memory; it was a moment frozen in time. The world spun around us, but we were the center of the universe.",
+        "image": "assets/03-favorite-memory-cosmic.jpg",
+        "imageType": "illustration",
+        "secretMessage": "I pick you across every multiverse.",
+        "unlockRule": "hold_7"
+    }
+]

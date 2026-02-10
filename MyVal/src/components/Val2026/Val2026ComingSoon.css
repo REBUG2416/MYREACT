@@ -1,0 +1,196 @@
+.val2026-coming-soon-container {
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+.val2026-stars,
+.val2026-stars2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+    z-index: 0;
+}
+
+.val2026-heart-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.val2026-stars {
+    animation: move-stars-back 200s linear infinite;
+}
+
+.val2026-stars2 {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+    animation: move-stars-back 150s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes move-stars-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+.val2026-coming-soon-content {
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    max-width: 50vw;
+    /* Reduced from 60vw to ensure it stays clear of hearts */
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.val2026-glow-text {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: white;
+    /* Pink color */
+    font-family: 'Paint Brush Script', sans-serif;
+    text-shadow: 0 4px 10px rgba(226, 77, 226, 0.3);
+}
+
+.val2026-reveal-btn {
+    background: linear-gradient(135deg, #ff69b4, #e24de2);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    /* Clean font, not paint brush */
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(226, 77, 226, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-bottom: 2rem;
+    z-index: 20;
+    position: relative;
+}
+
+.val2026-reveal-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 10px 30px rgba(226, 77, 226, 0.6);
+}
+
+/* Hide subtitle initially if needed, or style it */
+.val2026-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    color: #e0e0e0;
+}
+
+.val2026-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    /* Reduced gap */
+    flex-wrap: wrap;
+    /* Allow wrapping on very small screens */
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.val2026-time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem;
+    /* Reduced padding */
+    border-radius: 10px;
+    min-width: 70px;
+    /* Reduced min-width */
+}
+
+.val2026-time {
+    font-size: 2rem;
+    /* Reduced slightly */
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.val2026-label {
+    font-size: 0.7rem;
+    /* Reduced slightly */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    opacity: 0.7;
+}
+
+.val2026-time-separator {
+    font-size: 1.5rem;
+    /* Reduced slightly */
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    /* align with numbers */
+}
+
+@media (max-width: 600px) {
+    .val2026-glow-text {
+        font-size: 2rem;
+    }
+
+    .val2026-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .val2026-time-block {
+        min-width: 50px;
+        padding: 0.5rem;
+    }
+
+    .val2026-time {
+        font-size: 1.5rem;
+    }
+
+    .val2026-label {
+        font-size: 0.6rem;
+    }
+
+    .val2026-coming-soon-content {
+        max-width: 90vw;
+        /* Allow more width on mobile where hearts move/hide */
+    }
+}

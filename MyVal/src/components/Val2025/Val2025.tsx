@@ -17,8 +17,14 @@ export default function Val2025() {
 
   return (
     <>
+            <div className='yearDivision'>
+          <img src={roseLine} alt="" className="roseline" />
+          <span>Valentines Day <span style={{ color: "#0000ff" }}>2025</span></span>
+          <img src={roseLine} alt="" className="roseline" />
+        </div>
+
       <div className="container" data-aos="fade-down" data-aos-duration="1000">
-        <h1>To my Val</h1>
+        <h1 style={{ color: "#0000ff" }}>To my Val</h1>
       </div>
       <div className="text" data-aos="fade-up" data-aos-duration="1000">
         <span>
@@ -63,11 +69,6 @@ export default function Val2025() {
           </div>
         )}
 
-      <div className="yearDivision" >
-        <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
-        <span></span>
-        <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
-      </div>
     </>
   )
 }

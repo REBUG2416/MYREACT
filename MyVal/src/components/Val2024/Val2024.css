@@ -1,95 +1,104 @@
-.container>h1{
-    color: rgb(226, 0, 0);
-    font-family: 'Paint Brush Script', sans-serif;
-    font-size: 70px;
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    }
-    
-.roseline{
+.container>h1 {
+  color: rgb(226, 0, 0);
+  font-family: 'Paint Brush Script', sans-serif;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.roseline {
   width: 30%;
 
 }
 
-.yearDivision{
+.yearDivision {
   margin-top: 50px;
   margin-bottom: 50px;
-display: flex;
-justify-content: space-around;
-align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
 }
 
-.yearDivision>span{
+.yearDivision>span {
   color: white;
   font-family: 'Paint Brush Script', sans-serif;
   font-size: 50px;
 
 }
 
-    .heart {
-      color:#0000ff ; 
-      font-size: 120px;
-      position: fixed;
-      top: 32%;
-      animation: heartbeat-blue ease-in-out 2.5s infinite alternate;
-      right: 82%;
-  
-    }
-   
-    .text{
-      display: flex;
-      color: #fff;
-      flex-direction: column;
-      font-family: 'Drip October', sans-serif;
-      line-height: 40px;
-      width: 50%;
-      margin: auto;
-      text-align: center;
-      font-size: 20px;
-    }
+.heart {
+  color: #0000ff;
+  font-size: 120px;
+  position: fixed;
+  top: 32%;
+  animation: heartbeat-blue ease-in-out 2.5s infinite alternate;
+  right: 82%;
+  z-index: 1000;
+  /* Added high z-index to be visible over 2026 Coming Soon */
+}
 
-    .text>span{
-        margin-bottom: 5px;
-    }
-   
+.text {
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  font-family: 'Drip October', sans-serif;
+  line-height: 40px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+}
 
-    @keyframes heartbeat-blue {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-       from {
+.text>span {
+  margin-bottom: 5px;
+}
+
+
+@keyframes heartbeat-blue {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0000ff, 0 0 40px #0000ff, 0 0 50px #0000ff, 0 0 60px #0000ff;
   }
-  
+
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #7878e1, 0 0 40px #7878e1, 0 0 50px #7878e1, 0 0 60px #7878e1, 0 0 70px #7878e1;
   }
-    }
+}
 
 
-     @keyframes heartbeat-purple {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-       from {
+@keyframes heartbeat-purple {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #800080, 0 0 40px #800080, 0 0 50px #800080, 0 0 60px #800080;
   }
-  
+
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #e24de2, 0 0 40px #e24de2, 0 0 50px #e24de2, 0 0 60px #e24de2, 0 0 70px #e24de2;
   }
 }
 
 @media (max-width: 768px) {
-  .container > h1 {
+  .container>h1 {
     font-size: 50px;
   }
 
@@ -97,13 +106,13 @@ align-items: center;
     font-size: 80px;
   }
 
-  .yearDivision>span{
+  .yearDivision>span {
     font-size: 30px;
   }
 
-  .roseline{
+  .roseline {
     width: 30%;
-  
+
   }
 
   .text {
@@ -123,33 +132,35 @@ align-items: center;
 
 /* Mobile Styles */
 @media (max-width: 480px) {
-  .container > h1 {
+  .container>h1 {
     font-size: 50px;
   }
 
   .heart {
     font-size: 55px;
     top: 45%;
-    
-    }
-      .text {
+
+  }
+
+  .text {
     width: 90%;
     font-size: 16px;
     line-height: 30px;
   }
-  .yearDivision>span{
+
+  .yearDivision>span {
     font-size: 25px;
   }
 
-  .roseline{
+  .roseline {
     width: 25%;
-  
+
   }
-  
-  .text{
+
+  .text {
     width: 58%;
-   }
- 
+  }
+
 
 
   .download-section h2 {
@@ -165,6 +176,3 @@ align-items: center;
     font-size: 20px;
   }
 }
-
-
-

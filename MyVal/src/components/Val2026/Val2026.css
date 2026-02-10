@@ -1,0 +1,124 @@
+.val2026-wrapper {
+  margin-top: 30px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.val2026-title {
+  color: #e24de2;
+  font-family: 'Paint Brush Script', sans-serif;
+  font-size: 60px;
+  margin-bottom: 30px;
+  text-shadow: 0 4px 10px rgba(226, 77, 226, 0.3);
+}
+
+.val2026-poem {
+  font-family: 'Drip October', sans-serif;
+  color: white;
+  font-size: 22px;
+  line-height: 40px;
+  margin: 0 auto 40px auto;
+  max-width: 800px;
+}
+
+.val2026-poem p {
+  margin-bottom: 30px;
+}
+
+.sc-name {
+  color: #e24de2;
+  font-size: 1.2em;
+}
+
+.val2026-interactive {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  min-height: 200px;
+  /* Prevent layout jump */
+}
+
+.promise-btn {
+  background: linear-gradient(135deg, #ff69b4, #e24de2);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Pacifico', cursive;
+  box-shadow: 0 5px 20px rgba(226, 77, 226, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.promise-btn:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 10px 30px rgba(226, 77, 226, 0.6);
+}
+
+.promises-list {
+  background: rgba(255, 245, 245, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 500px;
+  color: #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease-out;
+}
+
+.promises-list h3 {
+  color: #e24de2;
+  font-family: 'Paint Brush Script', sans-serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.promises-list ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.promises-list li {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.signature {
+  margin-top: 20px;
+  font-family: 'Pacifico', cursive;
+  color: #e24de2;
+  font-size: 20px;
+  text-align: right;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .val2026-title {
+    font-size: 40px;
+  }
+
+  .val2026-poem {
+    font-size: 18px;
+    line-height: 32px;
+    width: 90%;
+  }
+
+  .promise-btn {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+  }
+}

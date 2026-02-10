@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Paint+Brush+Script&display=swap');
+
+.val2026-timeline-container {
+    --val2026-bg-1: #1b2735;
+    --val2026-bg-2: #090a0f;
+    --val2026-accent: #e24de2;
+    --val2026-text: #ffffff;
+    --val2026-card-bg: rgba(255, 255, 255, 0.05);
+
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, var(--val2026-bg-1) 0%, var(--val2026-bg-2) 100%);
+    font-family: 'Outfit', sans-serif;
+    color: var(--val2026-text);
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Star Background */
+.val2026-timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+    z-index: 0;
+    animation: move-stars 200s linear infinite;
+    opacity: 0.8;
+    pointer-events: none;
+    position: fixed;
+    /* Fix stars to viewport */
+}
+
+@keyframes move-stars {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+.val2026-timeline-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.val2026-timeline-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.val2026-timeline-title {
+    font-family: 'Paint Brush Script', cursive;
+    font-size: 3rem;
+    color: var(--val2026-accent);
+    text-shadow: 0 0 15px rgba(226, 77, 226, 0.6);
+    margin-bottom: 1rem;
+}
+
+.val2026-timeline-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Timeline Vertical Line */
+.val2026-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.val2026-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--val2026-accent), transparent);
+    transform: translateX(-50%);
+}
+
+.val2026-timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.val2026-timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--val2026-accent);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--val2026-accent);
+    z-index: 2;
+}
+
+.val2026-timeline-card {
+    width: 45%;
+    background: var(--val2026-card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.val2026-timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(226, 77, 226, 0.2);
+    border-color: rgba(226, 77, 226, 0.3);
+}
+
+/* Alternating Layout */
+.val2026-timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.val2026-timeline-item:nth-child(odd) .val2026-timeline-card {
+    margin-left: auto;
+    margin-right: 50px;
+    /* Space for dot */
+}
+
+.val2026-timeline-item:nth-child(even) .val2026-timeline-card {
+    margin-right: auto;
+    margin-left: 50px;
+    /* Space for dot */
+}
+
+.val2026-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.val2026-card-title {
+    font-size: 1.5rem;
+    color: var(--val2026-accent);
+    margin-bottom: 0.5rem;
+}
+
+.val2026-card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.val2026-secret-message {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(226, 77, 226, 0.1);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #ffd700;
+    /* Gold for secret */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.val2026-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.val2026-back-btn:hover {
+    background: var(--val2026-accent);
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .val2026-timeline-container {
+        padding: 1rem;
+    }
+
+    .val2026-timeline-header {
+        margin-bottom: 2rem;
+    }
+
+    .val2026-timeline-title {
+        font-size: 2rem;
+    }
+
+    /* Scale down the layout instead of stacking */
+    .val2026-timeline-card {
+        padding: 1rem;
+        width: 60%;
+        /* Wider as requested */
+    }
+
+    .val2026-card-title {
+        font-size: 1.1rem;
+    }
+
+    .val2026-card-text {
+        font-size: 0.8rem;
+    }
+
+    .val2026-card-image {
+        height: 120px;
+    }
+
+    /* Reset Margins for alternating layout */
+    .val2026-timeline-item:nth-child(odd) .val2026-timeline-card {
+        margin-right: 0px;
+    }
+
+    .val2026-timeline-item:nth-child(even) .val2026-timeline-card {
+        margin-left: 0px;
+    }
+
+    /* HIDE STRAIGHT LINE */
+    .val2026-timeline::before {
+        display: none;
+    }
+
+    /* RESET DOT POSITIONS */
+    .val2026-timeline-dot {
+        left: auto;
+        right: auto;
+        transform: translateY(-50%);
+        top: 50%;
+    }
+
+    /* ODD ITEM: DOT LEFT */
+    /* Center Dots relative to snake */
+    .val2026-timeline-item:nth-child(odd) .val2026-timeline-dot {
+        left: calc(50% - 50px);
+    }
+
+    .val2026-timeline-item:nth-child(even) .val2026-timeline-dot {
+        right: calc(50% - 50px);
+    }
+
+    /* --- SNAKE CONNECTORS --- */
+    .val2026-timeline-item {
+        position: relative;
+    }
+
+    /* Odd Item Tail (Line from Left Dot -> Curve Bottom Right) */
+    .val2026-timeline-item:nth-child(odd)::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: calc(50% + 2rem);
+        left: calc(50% - 40px);
+        top: 50%;
+        border-left: 2px solid var(--val2026-accent);
+        border-bottom: 2px solid var(--val2026-accent);
+        border-bottom-left-radius: 20px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Odd Item Head (Line from Top Right -> Curve Top Left -> Left Dot) */
+    .val2026-timeline-item:nth-child(odd)::before {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: calc(50% + 2rem);
+        left: calc(50% - 40px);
+        top: -2rem;
+        border-left: 2px solid var(--val2026-accent);
+        border-top: 2px solid var(--val2026-accent);
+        border-top-left-radius: 20px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Even Item Tail (Line from Right Dot -> Curve Bottom Left) */
+    .val2026-timeline-item:nth-child(even)::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: calc(50% + 2rem);
+        right: calc(50% - 40px);
+        top: 50%;
+        border-right: 2px solid var(--val2026-accent);
+        border-bottom: 2px solid var(--val2026-accent);
+        border-bottom-right-radius: 20px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Even Item Head (Line from Top Left -> Curve Top Right -> Right Dot) */
+    .val2026-timeline-item:nth-child(even)::before {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: calc(50% + 2rem);
+        right: calc(50% - 40px);
+        top: -2rem;
+        border-right: 2px solid var(--val2026-accent);
+        border-top: 2px solid var(--val2026-accent);
+        border-top-right-radius: 20px;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Adjust First and Last */
+    .val2026-timeline-item:first-child::before {
+        display: none;
+    }
+
+    .val2026-timeline-item:last-child::after {
+        display: none;
+    }
+}
+
+.val2026-unlock-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #e24de2, #ff69b4);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(226, 77, 226, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    pointer-events: auto;
+    /* Enable clicking */
+    z-index: 10;
+}
+
+.val2026-unlock-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(226, 77, 226, 0.6);
+}
+
+/* Locked State Styles */
+.val2026-locked {
+    position: relative;
+    overflow: hidden;
+    cursor: not-allowed;
+    background: rgba(20, 20, 20, 0.6);
+    /* Darker bg for locked */
+}
+
+.val2026-card-locked-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    /* Approximate height of content */
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.val2026-lock-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse-lock 2s infinite;
+}
+
+@keyframes pulse-lock {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* Final Surprise Overlay and Button */
+.val2026-timeline-container .val2026-btn-cosmic {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #00f2ff, #bc13fe);
+    color: white;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+    margin: 40px auto;
+    display: block;
+    text-decoration: none;
+    z-index: 20;
+}
+
+.val2026-timeline-container .val2026-btn-cosmic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
+}
+
+.val2026-final-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.val2026-final-content {
+    background: rgba(15, 32, 39, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+.val2026-final-content .val2026-neon-text {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3rem;
+    background: linear-gradient(to right, #fff, #00f2ff, #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.val2026-final-subtitle {
+    font-size: 1.5rem;
+    color: #bc13fe;
+    margin-bottom: 30px;
+}
+
+.val2026-final-footer {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 30px 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.val2026-timeline-container .val2026-btn-text {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 15px;
+}
+
+.val2026-timeline-container .val2026-btn-text:hover {
+    color: white;
+}
