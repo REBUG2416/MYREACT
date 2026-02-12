@@ -117,6 +117,17 @@ const Val2026Slideshow: React.FC = () => {
         }
     }, []);
 
+    // Ensure videos play on mobile when slide changes
+    useEffect(() => {
+        if (videoRef.current && slides[currentIndex].type === 'video') {
+            // Small delay to ensure DOM is ready
+            const timer = setTimeout(() => {
+                videoRef.current?.play().catch(e => console.log("Video play failed:", e));
+            }, 100);
+            return () => clearTimeout(timer);
+        }
+    }, [currentIndex]);
+
     const handleNext = () => {
         setCurrentIndex((prev) => (prev + 1) % slides.length);
     };

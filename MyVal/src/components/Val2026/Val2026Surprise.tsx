@@ -251,7 +251,8 @@ export default function Val2026Surprise() {
         setCurrentScreen('moment');
     };
 
-    const handlePressStart = () => {
+    const handlePressStart = (e: React.MouseEvent | React.TouchEvent) => {
+        e.preventDefault(); // Prevent context menu
         const item = timelineData[currentMomentIndex];
         if (item.unlockRule === 'hold_7' && !completedItems.includes(item.id)) {
             setIsHolding(true);
@@ -272,7 +273,8 @@ export default function Val2026Surprise() {
         }
     };
 
-    const handlePressEnd = () => {
+    const handlePressEnd = (e?: React.MouseEvent | React.TouchEvent) => {
+        if (e) e.preventDefault();
         if (longPressTimer.current) {
             clearTimeout(longPressTimer.current);
             longPressTimer.current = null;
@@ -508,6 +510,8 @@ export default function Val2026Surprise() {
                                 onMouseLeave={handlePressEnd}
                                 onTouchStart={handlePressStart}
                                 onTouchEnd={handlePressEnd}
+                                onContextMenu={(e) => e.preventDefault()}
+                                style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none' } as React.CSSProperties}
                             >
                                 <div className={`val2026-moment-image ${isHolding ? 'val2026-holding' : ''}`}>
                                     <img src={currentItem.image} alt={currentItem.title} draggable="false" />
