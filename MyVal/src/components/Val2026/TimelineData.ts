@@ -1,0 +1,57 @@
+
+import firstText from './assets/firstText.jpeg';
+import firstDate from './assets/firstDate.jpeg';
+import firstDance from './assets/firstDance.jpeg';
+
+export interface TimelineItem {
+    id: string;
+    title: string;
+    shortText: string;
+    image: string;
+    imageType: 'photo' | 'illustration';
+    secretMessage?: string;
+    unlockRule?: string;
+    quizQuestion?: string;
+    quizOptions?: string[];
+    quizAnswer?: number;
+}
+
+const timelineData: TimelineItem[] = [
+    {
+        "id": "first_text",
+        "title": "Our First Text",
+        "shortText": "Like a signal from a distant star, your first messages sparked a flame in me. I knew there was a lot more to you.. To us.",
+        "image": firstText,
+        "imageType": "photo",
+        "secretMessage": "The stars aligned the moment we said hello.",
+        "unlockRule": "tap_3"
+    },
+    {
+        "id": "first_date",
+        "title": "Our First Date",
+        "shortText": "The day i showed you what an actual date feels like. A memory etched in the fabric of spacetime.",
+        "image": firstDate,
+        "imageType": "photo",
+        "secretMessage": "Date or not, we always find a way to have fun.",
+        "unlockRule": "quiz",
+        "quizQuestion": "Where did we go on our first proper date?",
+        "quizOptions": [
+            "The Cinema",
+            "Bridge Park",
+            "Cold Stone",
+            "Chicken Republic"
+        ],
+        "quizAnswer": 2
+    },
+    {
+        "id": "first_dance",
+        "title": "Our First Dance",
+        "shortText": "This wasn't just a memory; it was a moment frozen in time. The world spun around us, but we were the center of the universe.",
+        "image": firstDance,
+        "imageType": "photo",
+        "secretMessage": "I'd pick you across every multiverse.",
+        "unlockRule": "hold_7"
+    }
+];
+
+export default timelineData;

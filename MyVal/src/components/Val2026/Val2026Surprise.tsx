@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Val2026Surprise.css';
 // @ts-ignore
-import timelineData from './Timeline.json';
+import timelineData, { TimelineItem } from './TimelineData';
 import Val2026ComingSoon from './Val2026ComingSoon';
 // @ts-ignore
 import bgMusic from './assets/Pink-Sweats-At-My-Worst-(TrendyBeatz.com).mp3';

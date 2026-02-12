@@ -56,8 +56,7 @@ const Val2026Slideshow: React.FC = () => {
 
     // Auto-advance logic
     useEffect(() => {
-        //@ts-ignore
-        let interval: NodeJS.Timeout;
+        let interval: ReturnType<typeof setTimeout>;
 
         if (isPlaying) {
             const currentSlide = slides[currentIndex];

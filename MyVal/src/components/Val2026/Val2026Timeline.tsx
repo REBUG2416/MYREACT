@@ -2,25 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Val2026Timeline.css';
 //@ts-ignore
-import timelineDataRaw from './Timeline.json';
+import timelineData, { TimelineItem } from './TimelineData';
 import Val2026Slideshow from './Val2026Slideshow';
 import roseLine from '../Val2024/assets/rose-line.png';
 
-const timelineData = timelineDataRaw as TimelineItem[];
 
-// Type definition for timeline items
-interface TimelineItem {
-    id: string;
-    title: string;
-    shortText: string;
-    image: string;
-    imageType: string;
-    secretMessage?: string;
-    unlockRule?: string;
-    quizQuestion?: string;
-    quizOptions?: string[];
-    quizAnswer?: number;
-}
 
 const Val2026Timeline: React.FC = () => {
     const [showFinalSurprise, setShowFinalSurprise] = useState(false);
@@ -70,9 +56,8 @@ const Val2026Timeline: React.FC = () => {
                                 <div className={`val2026-timeline-card ${!isItemUnlocked ? 'val2026-locked' : ''}`}>
                                     {isItemUnlocked ? (
                                         <>
-                                            {/* Unlocked Content */}
                                             <img
-                                                src={item.image.startsWith('http') || item.image.startsWith('/') ? item.image : `/${item.image}`}
+                                                src={item.image}
                                                 alt={item.title}
                                                 className="val2026-card-image"
                                                 onError={(e) => {
