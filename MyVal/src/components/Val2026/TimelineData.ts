@@ -1,7 +1,7 @@
 
-import firstText from './assets/firstText.jpeg';
-import firstDate from './assets/firstDate.jpeg';
-import firstDance from './assets/firstDance.jpeg';
+import firstText from './assets/firstText.png';
+import firstDate from './assets/firstDate.png';
+import firstDance from './assets/firstDance.png';
 
 export interface TimelineItem {
     id: string;

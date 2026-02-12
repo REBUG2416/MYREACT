@@ -3,7 +3,7 @@
         "id": "first_text",
         "title": "Our First Text",
         "shortText": "Like a signal from a distant star, your first messages sparked a flame in me. I knew there was a lot more to you.. To us.",
-        "image": "src/components/Val2026/assets/firstText.jpeg",
+        "image": "src/components/Val2026/assets/firstText.png",
         "imageType": "photo",
         "secretMessage": "The stars aligned the moment we said hello.",
         "unlockRule": "tap_3"
@@ -12,7 +12,7 @@
         "id": "first_date",
         "title": "Our First Date",
         "shortText": "The day i showed you what an actual date feels like. A memory etched in the fabric of spacetime.",
-        "image": "src/components/Val2026/assets/firstDate.jpeg",
+        "image": "src/components/Val2026/assets/firstDate.png",
         "imageType": "photo",
         "secretMessage": "Date or not, we always find a way to have fun.",
         "unlockRule": "quiz",
@@ -29,7 +29,7 @@
         "id": "first_dance",
         "title": "Our First Dance",
         "shortText": "This wasn't just a memory; it was a moment frozen in time. The world spun around us, but we were the center of the universe.",
-        "image": "src/components/Val2026/assets/firstDance.jpeg",
+        "image": "src/components/Val2026/assets/firstDance.png",
         "imageType": "photo",
         "secretMessage": "I'd pick you across every multiverse.",
         "unlockRule": "hold_7"

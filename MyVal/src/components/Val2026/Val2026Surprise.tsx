@@ -510,7 +510,7 @@ export default function Val2026Surprise() {
                                 onTouchEnd={handlePressEnd}
                             >
                                 <div className={`val2026-moment-image ${isHolding ? 'val2026-holding' : ''}`}>
-                                    <img src={`/${currentItem.image}`} alt={currentItem.title} draggable="false" />
+                                    <img src={currentItem.image} alt={currentItem.title} draggable="false" />
                                 </div>
                                 <div className="val2026-tap-hint">
                                     {currentItem.unlockRule === 'tap_3' && "Tap 3 times fast to collect the star ✨"}
