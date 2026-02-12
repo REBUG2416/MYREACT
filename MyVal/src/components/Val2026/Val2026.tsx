@@ -17,7 +17,7 @@ export default function Val2026() {
         const now = new Date().getTime();
         // Only unlock if time has passed AND we aren't in the middle of a transition
         // But for initial load, we can unlock immediately if date is past
-        if (now <= targetDate) {
+        if (now >= targetDate) {
             // If we want to show loader even on refresh after date, we could add logic here
             // For now, let's keep instant unlock on refresh
             setIsLocked(false);

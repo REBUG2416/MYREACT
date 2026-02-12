@@ -58,7 +58,7 @@ export default function Val2026Surprise() {
     useEffect(() => {
         const targetDate = new Date('2026-02-14T00:00:00').getTime();
         const now = new Date().getTime();
-        if (now <= targetDate) {
+        if (now >= targetDate) {
             setIsLocked(false);
         }
     }, []);
