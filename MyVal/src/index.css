@@ -28,7 +28,7 @@ body::after {
   z-index: -1;
   opacity: 0;
   pointer-events: none;
-  animation: slowFade 60s ease-in-out forwards;
+  animation: slowFade 1s ease-in-out forwards;
 }
 
 @keyframes slowFade {

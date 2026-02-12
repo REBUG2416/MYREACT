@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Val2026Timeline.css';
 //@ts-ignore
 import timelineDataRaw from './Timeline.json';
+import Val2026Slideshow from './Val2026Slideshow';
+import roseLine from '../Val2024/assets/rose-line.png';
 
 const timelineData = timelineDataRaw as TimelineItem[];
 
@@ -42,6 +44,12 @@ const Val2026Timeline: React.FC = () => {
 
     return (
         <div className="val2026-timeline-container">
+            <div className='yearDivision'>
+                <img src={roseLine} alt="" className="roseline" />
+                <span>Valentines Day <span style={{ color: "#e24de2" }}>2026</span></span>
+                <img src={roseLine} alt="" className="roseline" />
+            </div>
+
             <Link to="/" className="val2026-back-btn">
                 ← Back to Galaxy
             </Link>
@@ -64,7 +72,7 @@ const Val2026Timeline: React.FC = () => {
                                         <>
                                             {/* Unlocked Content */}
                                             <img
-                                                src={item.image.startsWith('assets') ? `/src/${item.image}` : item.image}
+                                                src={item.image.startsWith('http') || item.image.startsWith('/') ? item.image : `/${item.image}`}
                                                 alt={item.title}
                                                 className="val2026-card-image"
                                                 onError={(e) => {
@@ -76,7 +84,7 @@ const Val2026Timeline: React.FC = () => {
 
                                             {item.secretMessage && (
                                                 <div className="val2026-secret-message">
-                                                    <span>🔒 Secret:</span> {item.secretMessage}
+                                                    {item.secretMessage}
                                                 </div>
                                             )}
                                         </>
@@ -100,25 +108,13 @@ const Val2026Timeline: React.FC = () => {
                 </div>
             </div>
 
-            {/* Final Surprise Button */}
-            {(isMasterUnlocked || (timelineData.length > 0 && completedItems.length >= timelineData.length)) && (
-                <div style={{ textAlign: 'center', paddingBottom: '40px' }}>
-                    <button
-                        className="val2026-btn-cosmic"
-                        style={{ background: 'linear-gradient(45deg, #ff00cc, #333399)', boxShadow: '0 0 20px #ff00cc' }}
-                        onClick={() => setShowFinalSurprise(true)}
-                    >
-                        💖 Reveal Final Surprise 💖
-                    </button>
-                </div>
-            )}
 
             {/* Final Surprise Overlay */}
             {showFinalSurprise && (
                 <div className="val2026-final-overlay">
                     <div className="val2026-final-content">
-                        <div style={{ fontSize: '4rem', marginBottom: '20px' }}>✨🚀❤️</div>
-                        <h1 className="val2026-neon-text">Happy Valentine's Day</h1>
+                        <div className="val2026-final-emojis">✨🚀❤️</div>
+                        <h1 className="val2026-neon-text">Happy Valentine's Day Kebabi</h1>
                         <p className="val2026-final-subtitle">You are my universe.</p>
                         <p className="val2026-final-footer">Our journey is just beginning...</p>
 
@@ -143,6 +139,30 @@ const Val2026Timeline: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {(isMasterUnlocked || (timelineData.length > 0 && completedItems.length >= timelineData.length)) && (<>
+                <div style={{ marginTop: '80px', marginBottom: '80px' }}>
+                    <Val2026Slideshow />
+                </div>
+
+                {/* Final Surprise Button */}
+                <div style={{ textAlign: 'center', paddingBottom: '40px' }}>
+                    <button
+                        className="val2026-btn-cosmic"
+                        style={{ background: 'linear-gradient(45deg, #ff00cc, #333399)', boxShadow: '0 0 20px #ff00cc' }}
+                        onClick={() => setShowFinalSurprise(true)}
+                    >
+                        💖 Reveal Final Surprise 💖
+                    </button>
+                </div>
+            </>
+            )}
+
+            <div className='yearDivision'>
+                <img src={roseLine} alt="" className="roseline" />
+                <span></span>
+                <img src={roseLine} alt="" className="roseline" />
+            </div>
         </div>
     );
 };

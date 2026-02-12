@@ -11,10 +11,11 @@
     background: radial-gradient(ellipse at bottom, var(--val2026-bg-1) 0%, var(--val2026-bg-2) 100%);
     font-family: 'Outfit', sans-serif;
     color: var(--val2026-text);
-    padding: 2rem;
     position: relative;
     overflow-x: hidden;
 }
+
+
 
 /* Star Background */
 .val2026-timeline-container::before {
@@ -490,6 +491,44 @@
     margin-top: 15px;
 }
 
+
+.val2026-final-emojis {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
 .val2026-timeline-container .val2026-btn-text:hover {
     color: white;
+}
+
+@media (max-width: 768px) {
+    /* ... existing mobile styles ... */
+
+    /* Final Surprise Mobile Overrides */
+    .val2026-final-content {
+        padding: 20px;
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .val2026-final-content .val2026-neon-text {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .val2026-final-emojis {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .val2026-final-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .val2026-timeline-container .val2026-btn-cosmic {
+        padding: 12px 30px;
+        font-size: 1rem;
+        margin: 20px auto;
+    }
 }

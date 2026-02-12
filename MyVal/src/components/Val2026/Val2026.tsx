@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Val2026.css';
 import roseLine from '../Val2024/assets/rose-line.png';
 import Val2026ComingSoon from './Val2026ComingSoon';
+import Val2026Loader from './Val2026Loader';
 
 export default function Val2026() {
     const [isLocked, setIsLocked] = useState(true);
+    const [isFading, setIsFading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [showPromises, setShowPromises] = useState(false);
     const [hasVisitedTimeline, setHasVisitedTimeline] = useState(false);
 
     useEffect(() => {
         const targetDate = new Date('2026-02-14T00:00:00').getTime();
         const now = new Date().getTime();
-        if (now >= targetDate) {
+        // Only unlock if time has passed AND we aren't in the middle of a transition
+        // But for initial load, we can unlock immediately if date is past
+        if (now <= targetDate) {
+            // If we want to show loader even on refresh after date, we could add logic here
+            // For now, let's keep instant unlock on refresh
             setIsLocked(false);
         }
 
@@ -20,8 +28,30 @@ export default function Val2026() {
         setHasVisitedTimeline(visited);
     }, []);
 
+    const handleTimerEnd = () => {
+        setIsFading(true);
+        setTimeout(() => {
+            setIsFading(false);
+            setIsLocked(false);
+            setIsLoading(true);
+
+            // Show loader for 3 seconds then reveal content
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 3000);
+        }, 2000); // Wait for 2s fade out
+    };
+
+    if (isLoading) {
+        return <Val2026Loader />;
+    }
+
     if (isLocked) {
-        return <Val2026ComingSoon />;
+        return (
+            <div className={isFading ? 'val2026-fade-out' : ''}>
+                <Val2026ComingSoon onTimerEnd={handleTimerEnd} />
+            </div>
+        );
     }
 
 
@@ -38,29 +68,38 @@ export default function Val2026() {
 
                 <div className="val2026-poem">
                     <p>
-                        In twenty-four, I wrote a rhyme,<br />
-                        To tell you of a love sublime.<br />
-                        In twenty-five, an app I made,<br />
-                        A digital bond that will not fade.
+                        There is a quiet magic in <span style={{ color: "red" }}>loving</span> you,<br />
+                        The kind that returns to me every time.<br />
+                        In your presence, the world slows down,<br />
+                        And my heart always finds its way back.
                     </p>
                     <p>
-                        Now twenty-six is here to see,<br />
-                        How deep our roots have grown to be.<br />
-                        Like constants in a changing code,<br />
-                        You are my home, my safe abode.
+                        Your smile feels like morning light,<br />
+                        Soft, warm, and endlessly familiar.<br />
+                        Your voice is comfort in motion,<br />
+                        A place my soul knows without asking.
                     </p>
                     <p>
-                        No matter how the years may drift,<br />
-                        Your presence is my greatest gift.<br />
-                        So here's a vow for all time through:<br />
-                        <span className="sc-name">Kebabi</span>, I will always cherish you.
+                        With you, <span style={{ color: "red" }}>love</span> doesn’t rush or fade,<br />
+                        It circles gently, steady and true.<br />
+                        No matter where the days may wander,<br />
+                        We always meet in the same place us.
                     </p>
+                    <p>
+                        So today, and on all the days after,<br />
+                        This truth will remain unchanged:<br />
+                        <span className="sc-name">Kebabi</span>, you are my heart’s constant,<br />
+                        And <span style={{ color: "red" }}>loving</span> you is our <span style={{ color: "red" }}>infinite loop</span>.
+                    </p>
+                    <div className="signature">
+                        <span style={{ color: "blue" }}>— Kababi</span>
+                    </div>
                 </div>
 
                 <div className="val2026-interactive" data-aos="zoom-in" data-aos-delay="200">
                     {!showPromises ? (
                         <button className="promise-btn" onClick={() => setShowPromises(true)}>
-                            Open My Heart 💌
+                            Open My Heart 🩵
                         </button>
                     ) : (
                         <div className="promises-list">
@@ -72,36 +111,37 @@ export default function Val2026() {
                                 <li>✨ To love you, infinitely.</li>
                             </ul>
                             <div className="signature">- Forever Yours, Dera</div>
+                            <Link to="/val2026/2026-timeline" style={{ textDecoration: 'none' }}>
+                                <button className="promise-btn" style={{ fontSize: '1rem', background: 'linear-gradient(135deg, #2c5364, #203a43)', padding: '10px 20px', marginTop: '20px' }}>
+                                    🚀 Explore Our Cosmic Timeline
+                                </button>
+                            </Link>
+
                         </div>
                     )}
                 </div>
 
                 <div style={{ marginTop: '50px', marginBottom: '50px', display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-                    <a href="/val2026/2026-timeline" style={{ textDecoration: 'none' }}>
-                        <button className="promise-btn" style={{ fontSize: '1.2rem', background: 'linear-gradient(135deg, #2c5364, #203a43)' }}>
-                            🚀 Explore Our Cosmic Timeline
-                        </button>
-                    </a>
                     {hasVisitedTimeline && (
-                        <a href="/val2026/surprise" style={{ textDecoration: 'none' }}>
+                        <Link to="/val2026/surprise" style={{ textDecoration: 'none' }}>
                             <button className="promise-btn" style={{ fontSize: '1.2rem', background: 'linear-gradient(135deg, #43cea2, #185a9d)' }}>
                                 ✨ Cosmic Surprise
                             </button>
-                        </a>
+                        </Link>
                     )}
-                    <a href="/val2026/be-my-valentine" style={{ textDecoration: 'none' }}>
+                    <Link to="/val2026/be-my-valentine" style={{ textDecoration: 'none' }}>
                         <button className="promise-btn" style={{ fontSize: '1.2rem', background: 'linear-gradient(135deg, #ff9966, #ff5e62)' }}>
                             💝 Be My Valentine
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
-                  <div className="yearDivision" >
-        <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
-        <span></span>
-        <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
-      </div>
+            <div className="yearDivision" >
+                <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
+                <span></span>
+                <img src={roseLine || "/placeholder.svg"} alt="" className="roseline" />
+            </div>
 
         </div>
     );

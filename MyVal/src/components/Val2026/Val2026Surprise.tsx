@@ -1,9 +1,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Val2026Surprise.css';
 // @ts-ignore
 import timelineData from './Timeline.json';
 import Val2026ComingSoon from './Val2026ComingSoon';
+// @ts-ignore
+import bgMusic from './assets/Pink-Sweats-At-My-Worst-(TrendyBeatz.com).mp3';
 
 // Types
 type UnlockRule = 'visit_all' | 'quiz';
@@ -23,6 +26,7 @@ interface TimelineItem {
 type Screen = 'cover' | 'timeline' | 'moment' | 'final';
 
 export default function Val2026Surprise() {
+    const navigate = useNavigate();
     // State
     const [isLocked, setIsLocked] = useState(true);
     const [currentScreen, setCurrentScreen] = useState<Screen>('cover');
@@ -54,7 +58,7 @@ export default function Val2026Surprise() {
     useEffect(() => {
         const targetDate = new Date('2026-02-14T00:00:00').getTime();
         const now = new Date().getTime();
-        if (now >= targetDate) {
+        if (now <= targetDate) {
             setIsLocked(false);
         }
     }, []);
@@ -130,9 +134,17 @@ export default function Val2026Surprise() {
         if (saved) {
             try {
                 const parsed = JSON.parse(saved);
-                setCompletedItems(parsed.completed || []);
+                const loadedCompleted = parsed.completed || [];
+                setCompletedItems(loadedCompleted);
                 setQuizSolved(parsed.quizSolved || []);
                 setSecretsUnlocked(parsed.secretsUnlocked || []);
+
+                // Restore Screen Location
+                if (loadedCompleted.length >= timelineData.length) {
+                    setCurrentScreen('final');
+                } else if (loadedCompleted.length > 0) {
+                    setCurrentScreen('timeline');
+                }
             } catch (e) {
                 console.error("Failed to load state", e);
             }
@@ -168,6 +180,44 @@ export default function Val2026Surprise() {
             if (timeoutId) window.clearTimeout(timeoutId);
         };
     }, [currentScreen, isLocked]);
+
+    // Attempt auto-play on mount, with fallback listeners if blocked
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.volume = 0.5;
+
+            const playAudio = async () => {
+                if (audioRef.current && audioRef.current.paused) {
+                    try {
+                        await audioRef.current.play();
+                        setIsPlaying(true);
+                        // Remove listeners once playing succeeds
+                        document.removeEventListener('click', playAudio);
+                        document.removeEventListener('keydown', playAudio);
+                        document.removeEventListener('scroll', playAudio);
+                        document.removeEventListener('touchstart', playAudio);
+                    } catch (err) {
+                        console.log("Autoplay prevented, waiting for interaction:", err);
+                        setIsPlaying(false);
+                        // Add listeners to try again on interaction
+                        document.addEventListener('click', playAudio, { once: true });
+                        document.addEventListener('keydown', playAudio, { once: true });
+                        document.addEventListener('scroll', playAudio, { once: true });
+                        document.addEventListener('touchstart', playAudio, { once: true });
+                    }
+                }
+            };
+
+            playAudio();
+
+            return () => {
+                document.removeEventListener('click', playAudio);
+                document.removeEventListener('keydown', playAudio);
+                document.removeEventListener('scroll', playAudio);
+                document.removeEventListener('touchstart', playAudio);
+            };
+        }
+    }, []);
 
     // --- Handlers ---
     const longPressTimer = useRef<number | null>(null);
@@ -360,7 +410,7 @@ export default function Val2026Surprise() {
                         </svg>
                     )}
                 </button>
-                <audio ref={audioRef} src="/assets/space-ambient.mp3" loop />
+                <audio ref={audioRef} src={bgMusic} loop autoPlay preload="auto" />
             </div>
 
             <div className="val2026-surprise-content">
@@ -431,7 +481,7 @@ export default function Val2026Surprise() {
                             <button
                                 className="val2026-btn-cosmic val2026-small"
                                 style={{ marginTop: '20px', background: 'rgba(255,255,255,0.1)', border: '1px solid white' }}
-                                onClick={() => window.location.href = '/val2026/2026-timeline'}
+                                onClick={() => navigate('/val2026/2026-timeline')}
                             >
                                 Return to Cosmic Timeline 🚀
                             </button>
@@ -472,7 +522,7 @@ export default function Val2026Surprise() {
 
                             {completedItems.includes(currentItem.id) && (
                                 <button className="val2026-btn-cosmic val2026-small" onClick={handleNextMoment}>
-                                    {currentItem.id === 'favorite_memory' ? 'Finish Journey' : 'Next Star →'}
+                                    {currentItem.id === 'first_dance' ? 'Finish Journey' : 'Next Star →'}
                                 </button>
                             )}
                         </div>
@@ -482,7 +532,7 @@ export default function Val2026Surprise() {
                 {currentScreen === 'final' && (
                     <section className="val2026-screen val2026-active">
                         <div className="val2026-final-content">
-                            <h1 className="val2026-final-title val2026-neon-text">Happy Valentine's Day</h1>
+                            <h1 className="val2026-final-title val2026-neon-text">Happy Valentine's Day Kebabi</h1>
                             <p className="val2026-final-subtitle">You are my universe.</p>
                             <p className="val2026-final-footer">Our journey is just beginning...</p>
                             <button
