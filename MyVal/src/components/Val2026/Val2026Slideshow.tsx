@@ -56,6 +56,7 @@ const Val2026Slideshow: React.FC = () => {
 
     // Auto-advance logic
     useEffect(() => {
+        //@ts-ignore
         let interval: NodeJS.Timeout;
 
         if (isPlaying) {
