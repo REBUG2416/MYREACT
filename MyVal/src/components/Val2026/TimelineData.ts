@@ -1,6 +1,6 @@
 
-import firstText from './assets/firstText.png';
-import firstDate from './assets/firstDate.png';
+import firstText from './assets/firstText.jpeg';
+import firstDate from './assets/firstDate.jpeg';
 import firstDance from './assets/firstDance.png';
 
 export interface TimelineItem {
